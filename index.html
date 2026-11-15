@@ -4,16 +4,17 @@
 <meta charset="utf-8">
 <title>BioAI – জীববিজ্ঞান শিক্ষক</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#15803d">
+<meta name="theme-color" content="#0f7b63">
 <script src="app.js" defer></script>
 <style>
-:root{--bg:#f4f9f5;--h1:#e3f6e8;--h2:#c9ebd3;--glass:rgba(255,255,255,.7);--card:#fff;--ink:#182b1e;--mute:#556e5c;--brand:#15803d;--brand-ink:#fff;--bub:#e1f5e7;--line:#d1e5d7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--fs:1}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a13;--h1:#153621;--h2:#0d2415;--glass:rgba(255,255,255,.14);--card:#16241b;--ink:#e4f0e8;--mute:#8fa897;--brand:#4ade80;--brand-ink:#062110;--bub:#1b3825;--line:#283f30;color-scheme:dark}}
+:root{--bg:#f6f8f7;--h1:#eaf7f2;--h2:#d3eee4;--glass:rgba(255,255,255,.7);--card:#fff;--ink:#1c2b27;--mute:#5d6f69;--brand:#0f7b63;--brand-ink:#fff;--bub:#e3f3ee;--line:#d8e2de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--fs:1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111a17;--h1:#17372f;--h2:#0f2520;--glass:rgba(255,255,255,.14);--card:#1a2622;--ink:#e6efec;--mute:#93a8a1;--brand:#2fb894;--brand-ink:#08201a;--bub:#1f3a33;--line:#2c3d37;color-scheme:dark}}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--ink);font-family:"Noto Sans Bengali","Kalpurush","Siyam Rupali",system-ui,sans-serif;display:flex;flex-direction:column;line-height:1.7}
 header,main,.bar{position:relative;z-index:1}
 .bgart{position:fixed;inset:0;width:100%;height:100%;z-index:0;color:var(--brand);opacity:.085;pointer-events:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bgart{opacity:.13}}
 .hero{position:relative;overflow:hidden;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 16px;background:linear-gradient(120deg,var(--h1),var(--h2));border-bottom:1px solid var(--line)}
 .hero .t{position:relative;z-index:1}
 .hero h1{margin:0;font-size:clamp(1.5rem,4.2vw,2.2rem);line-height:1.25;color:var(--ink)}
@@ -39,15 +40,17 @@ header,main,.bar{position:relative;z-index:1}
 .bar{border-top:1px solid var(--line);background:var(--card);padding:10px 12px}
 .sel,.row,.note,.pv{max-width:1100px;margin:0 auto}
 .sel{margin-bottom:8px;display:flex;gap:8px;align-items:center}
-select{flex:1;font:inherit;font-size:.88rem;padding:6px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0}
+select{flex:1;font:inherit;font-size:.88rem;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0;min-height:36px}
 .fs{display:flex;gap:6px}
 .fs button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;font:inherit;min-width:44px;min-height:36px;cursor:pointer}
-.lnk{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--brand);border-radius:10px;color:var(--brand);background:var(--bub);cursor:pointer;font:inherit;font-size:.9rem;white-space:nowrap}
-.lnk.hot{background:#d32f2f;border-color:#d32f2f;color:#fff;font-weight:700}
-.row{display:flex;gap:8px}
-textarea{flex:1;font:inherit;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:none;min-height:52px;max-height:140px;font-size:calc(1rem*var(--fs))}
-.cam{border:1px solid var(--line);background:var(--bg);border-radius:12px;font-size:1.3rem;padding:0 12px;cursor:pointer;min-height:52px}
-button.send{border:0;background:var(--brand);color:var(--brand-ink);font-weight:700;cursor:pointer;width:52px;min-width:52px;min-height:52px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem}
+.lnk{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--brand);border-radius:10px;color:var(--brand);background:var(--bub);text-decoration:none;font-size:.9rem;white-space:nowrap}
+.lnk.hot{background:#d32f2f;border-color:#d32f2f;color:#fff;font-weight:700;animation:hot 1.4s ease-in-out infinite}
+@keyframes hot{0%,100%{box-shadow:0 0 0 0 rgba(211,47,47,.7);transform:scale(1)}50%{box-shadow:0 0 14px 6px rgba(211,47,47,.35);transform:scale(1.05)}}
+.row{display:flex;gap:8px;align-items:center}
+textarea{flex:1;font:inherit;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:none;min-height:52px;max-height:140px;font-size:calc(1rem*var(--fs))}
+.cam{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;font-size:1.3rem;min-width:52px;min-height:52px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.mic.on{background:#d32f2f;border-color:#d32f2f;color:#fff}
+button.send{border:0;background:var(--brand);color:var(--brand-ink);font-weight:700;cursor:pointer;width:52px;min-width:52px;min-height:52px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.35rem}
 button:disabled{opacity:.5}
 .pv{margin-bottom:8px;display:none;align-items:center;gap:8px}
 .pv img{height:56px;border-radius:8px;border:1px solid var(--line)}
@@ -100,7 +103,7 @@ body.chatting .hero h1{font-size:1.15rem}
       <button type="button" onclick="setFs(-0.1)" title="লেখা ছোট করো">A−</button>
       <button type="button" onclick="setFs(0.1)" title="লেখা বড় করো">A+</button>
     </div>
-    <button type="button" class="lnk hot" onclick="startMcq()">📝 MCQ টেস্ট</button>
+    <a href="test.html" class="lnk hot">📝 MCQ টেস্ট</a>
     <select id="chap">
       <option value="">অধ্যায় (ঐচ্ছিক)</option>
       <option>১ম অধ্যায়: জীবন পাঠ</option>
@@ -127,9 +130,9 @@ body.chatting .hero h1{font-size:1.15rem}
   <div class="row">
     <input type="file" id="file" accept="image/*" hidden onchange="handleImg(this)">
     <button type="button" class="cam" onclick="document.getElementById('file').click()" title="ছবি দাও">📷</button>
+    <textarea id="inp" rows="1" placeholder="প্রশ্ন লেখো বা বলো..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
     <button type="button" class="cam mic" id="micBtn" onclick="toggleMic()" title="মুখে বলো">🎤</button>
-    <textarea id="inp" rows="1" placeholder="জীববিজ্ঞানের প্রশ্ন লেখো..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
-    <button type="button" class="send" id="sendBtn" onclick="sendMsg()">➤</button>
+    <button type="button" class="send" id="sendBtn" onclick="sendMsg()">↑</button>
   </div>
   <div class="note">I can make mistakes. Please check before use.</div>
 </div>
