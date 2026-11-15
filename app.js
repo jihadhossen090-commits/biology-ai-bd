@@ -2,13 +2,17 @@ let imgData = null;
 let fs = 1;
 const history = [];
 
+function getSavedKey() {
+  return (localStorage.getItem('gemini_api_key') || '').trim();
+}
+
 function setFs(d) {
   fs = Math.min(1.5, Math.max(0.8, +(fs + d).toFixed(1)));
   document.documentElement.style.setProperty('--fs', fs);
 }
 
 function handleImg(input) {
-  const file = input.files && input.files[0];
+  const file = input.files.item(0);
   if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
@@ -60,11 +64,11 @@ function copyText(btn) {
   setTimeout(() => btn.textContent = '📋 কপি করো', 1500);
 }
 
-async function sendMsg(isMcq = false) {
+async function sendMsg() {
   const inp = document.getElementById('inp');
   const chap = document.getElementById('chap').value;
   const msg = inp.value.trim();
-  if (!msg && !imgData && !isMcq) return;
+  if (!msg && !imgData) return;
 
   document.body.classList.add('chatting');
   const chat = document.getElementById('chat');
@@ -76,8 +80,7 @@ async function sendMsg(isMcq = false) {
     im.src = imgData;
     uDiv.appendChild(im);
   }
-  const displayMsg = isMcq ? `📝 MCQ টেস্ট (${chap || 'সব অধ্যায়'})` : msg;
-  if (displayMsg) uDiv.appendChild(document.createTextNode(displayMsg));
+  if (msg) uDiv.appendChild(document.createTextNode(msg));
   chat.appendChild(uDiv);
 
   const curImg = imgData;
@@ -97,24 +100,26 @@ async function sendMsg(isMcq = false) {
     const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: msg, chapter: chap, image: curImg, history, isMcq })
+      body: JSON.stringify({
+        message: msg,
+        chapter: chap,
+        image: curImg,
+        history,
+        userApiKey: getSavedKey()
+      })
     });
     const data = await res.json();
     if (data.error) {
       aDiv.textContent = '⚠️ ' + data.error;
     } else {
       aDiv.innerHTML = formatReply(data.reply);
-      history.push({ role: 'user', text: displayMsg }, { role: 'model', text: data.reply });
+      history.push({ role: 'user', text: msg || 'ছবির প্রশ্ন' }, { role: 'model', text: data.reply });
     }
   } catch (e) {
     aDiv.textContent = '⚠️ নেটওয়ার্ক সমস্যা হয়েছে। আবার চেষ্টা করো।';
   }
   btn.disabled = false;
   chat.scrollTop = chat.scrollHeight;
-}
-
-function startMcq() {
-  sendMsg(true);
 }
 
 let rec;
@@ -128,7 +133,7 @@ function toggleMic() {
   rec.onstart = () => micBtn.classList.add('on');
   rec.onend = () => { micBtn.classList.remove('on'); rec = null; };
   rec.onresult = e => {
-    document.getElementById('inp').value += e.results[0][0].transcript;
+    document.getElementById('inp').value += e.results.item(0).item(0).transcript;
   };
   rec.start();
 }
