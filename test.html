@@ -350,7 +350,6 @@ function nextQuestion() {
 }
 
 function showResult() {
-  clearInterval(timerIntent); // safety check
   clearInterval(timerInterval);
   document.getElementById('quizView').style.display = 'none';
   document.getElementById('resultView').style.display = 'block';
@@ -369,6 +368,7 @@ function showResult() {
     wrongSec.style.display = 'block';
     retryWrongBtn.style.display = 'inline-block';
     document.getElementById('wrongList').innerHTML = wrongQuestions.map(w => `
+      wcard {background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px;}
       <div class="wcard">
         <div class="wq">${esc(w.q)}</div>
         <div class="wa">✔ সঠিক উত্তর: ${esc(w.options[w.ans])}</div>
