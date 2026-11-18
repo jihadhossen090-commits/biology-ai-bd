@@ -126,20 +126,20 @@ h1{margin:0 0 6px;font-size:1.65rem;display:flex;align-items:center;gap:10px}
 
 <script>
 const chapters = [
-  { num: "অধ্যায় ১", title: "জীবন পাঠ" },
-  { num: "অধ্যায় ২", title: "জীবকোষ ও টিস্যু" },
-  { num: "অধ্যায় ৩", title: "কোষ বিভাজন" },
-  { num: "অধ্যায় ৪", title: "জীবনীশক্তি" },
-  { num: "অধ্যায় ৫", title: "খাদ্য, পুষ্টি এবং পরিপাক" },
-  { num: "অধ্যায় ৬", title: "জীবে পরিবহন" },
-  { num: "অধ্যায় ৭", title: "গ্যাসীয় বিনিময়" },
-  { num: "অধ্যায় ৮", title: "রেচন প্রক্রিয়া" },
-  { num: "অধ্যায় ৯", title: "দৃঢ়তা প্রদান ও চলন" },
-  { num: "অধ্যায় ১০", title: "সমন্বয়" },
-  { num: "অধ্যায় ১১", title: "জীবের প্রজনন" },
-  { num: "অধ্যায় ১২", title: "জীবের বংশগতি ও বিবর্তন" },
-  { num: "অধ্যায় ১৩", title: "জীবের পরিবেশ" },
-  { num: "অধ্যায় ১৪", title: "জীবপ্রযুক্তি" }
+  { num: "অধ্যায় ১", title: "জীবন পাঠ", keywords: ["জীবন পাঠ", "ট্যাক্সোনমি", "দ্বিপদ নামকরণ", "ক্যারোলাস লিনিয়াস", "বর্গ", "গোত্র", "প্রজাতি"] },
+  { num: "অধ্যায় ২", title: "জীবকোষ ও টিস্যু", keywords: ["জীবকোষ", "প্রোটোপ্লাজম", "মাইটোকন্ড্রিয়া", "রাইবোজোম", "প্লাস্টিড", "নিউক্লিয়াস", "টিস্যু",্নাইলেম", "ফ্লোয়েম"] },
+  { num: "অধ্যায় ৩", title: "কোষ বিভাজন", keywords: ["কোষ বিভাজন", "মাইটোসিস", "মিয়োসিস", "অ্যামাইটোসিস", "ক্রোমোজোম", "স্পিন্ডল", "মেটাফেজ", "অ্যানাফেজ"] },
+  { num: "অধ্যায় ৪", title: "জীবনীশক্তি", keywords: ["জীবনীশক্তি", "সালোকসংশ্লেষণ", "শ্বসন", "এটিপি", "ক্লোরোফিল", "ক্যালভিন চক্র", "গ্লাইকোলাইসিস"] },
+  { num: "অধ্যায় ৫", title: "খাদ্য, পুষ্টি এবং পরিপাক", keywords: ["খাদ্য", "পুষ্টি", "পরিপাক", "ভিটামিন", "আমিষ", "শর্করা", "স্নেহ", "পাকস্থলী", "যকৃৎ", "এনজাইম"] },
+  { num: "অধ্যায় ৬", title: "জীবে পরিবহন", keywords: ["পরিবহন", "ব্যাপন", "অভিস্রবণ", "প্রস্বেদন", "জাইলেম", "ফ্লোয়েম", "রক্ত", "হৃদপিণ্ড", "ধমনি", "শিরা"] },
+  { num: "অধ্যায় ৭", title: "গ্যাসীয় বিনিময়", keywords: ["গ্যাসীয় বিনিময়", "ফুসফুস", "শ্বাসনালি", "শ্বসনতন্ত্র", "অ্যালভিওলাই", "অক্সিজেন", "কার্বন ডাই-অক্সাইড"] },
+  { num: "অধ্যায় ৮", title: "রেচন প্রক্রিয়া", keywords: ["রেচন", "বৃক্ক", "নেফ্রন", "মূত্র", "ইউরিয়া", "ডায়ালিসিস"] },
+  { num: "অধ্যায় ৯", title: "দৃঢ়তা প্রদান ও চলন", keywords: ["কঙ্কাল", "অস্থি", "পেশি", "সন্ধি", "লিগামেন্ট", "টেন্ডন", "অস্টিওব্লাস্ট"] },
+  { num: "অধ্যায় ১০", title: "সমন্বয়", keywords: ["সমন্বয়", "হরমোন", "মস্তিষ্ক", "স্নায়ুতন্ত্র", "নিউরণ", "সিন্যাপস", "গ্রন্থি", "উদ্দীপনা"] },
+  { num: "অধ্যায় ১১", title: "জীবের প্রজনন", keywords: ["প্রজনন", "ফুল", "পরাগায়ন", "নিষেক", "গর্ভাশয়", "ভ্রূণ", "যৌন প্রজনন"] },
+  { num: "অধ্যায় ১২", title: "জীবের বংশগতি ও বিবর্তন", keywords: ["বংশগতি", "ডিএনএ", "আরএনএ", "জিন", "মেন্ডেল", "বিবর্তন", "জীবাশ্ম", "প্রাকৃতিক নির্বাচন"] },
+  { num: "অধ্যায় ১৩", title: "জীবের পরিবেশ", keywords: ["পরিবেশ", "ইকোসিস্টেম", "খাদ্যশিকল", "খাদ্যজাল", "উৎপাদক", "বিয়োজক", "বাস্তুতন্ত্র"] },
+  { num: "অধ্যায় ১৪", title: "জীবপ্রযুক্তি", keywords: ["জীবপ্রযুক্তি", "জিন প্রকৌশল", "রিসেম্বলড ডিএনএ", "টিস্যু কালচার", "জিএমও", "ক্লোনিং"] }
 ];
 
 const labels = ['ক', 'খ', 'গ', 'ঘ'];
@@ -157,6 +157,7 @@ let timeExpired = false;
 
 function renderChapters() {
   const grid = document.getElementById('chapGrid');
+  if(!grid) return;
   grid.innerHTML = chapters.map((c, i) => `
     <div class="ccard" onclick="startChapter(${i})">
       <div class="cnum">${c.num}</div>
@@ -181,7 +182,7 @@ function backToChapters() {
   document.getElementById('homeView').style.display = 'block';
 }
 
-function startTimer(totalQuestions) {
+function startTimer() {
   clearInterval(timerInterval);
   timeExpired = false;
   timeLeft = 25 * 60; // নির্দিষ্ট ২৫ মিনিট
@@ -209,8 +210,23 @@ function updateTimerUI() {
   const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
   const s = String(timeLeft % 60).padStart(2, '0');
   const badge = document.getElementById('timerBadge');
-  badge.textContent = `⏱️ সময় বাকি: ${m}:${s}`;
-  badge.classList.toggle('low', timeLeft <= 60);
+  if(badge) {
+    badge.textContent = `⏱️ সময় বাকি: ${m}:${s}`;
+    badge.classList.toggle('low', timeLeft <= 60);
+  }
+}
+
+function filterChapterQuestions(list, chapIdx) {
+  const currentChap = chapters[chapIdx];
+  const otherKeywords = chapters.filter((_, idx) => idx !== chapIdx).flatMap(c => c.keywords);
+  const filtered = list.filter(item => {
+    const fullText = `${item.q} ${item.options.join(' ')} ${item.exp || ''}`;
+    const hasCurrentKw = currentChap.keywords.some(kw => fullText.includes(kw));
+    const hasOtherKw = otherKeywords.some(kw => fullText.includes(kw));
+    if (hasOtherKw && !hasCurrentKw) return false;
+    return true;
+  });
+  return filtered.length >= 15 ? filtered.slice(0, 25) : list.slice(0, 25);
 }
 
 async function startChapter(idx) {
@@ -230,11 +246,11 @@ async function startChapter(idx) {
     ? 'বাংলাদেশের নবম-দশম শ্রেণির NCTB জীববিজ্ঞান মূল পাঠ্যবইয়ের নির্দিষ্ট অধ্যায়ের অনুশীলনী ও বোর্ড পরীক্ষায় আসা'
     : 'বাংলাদেশের নবম-দশম শ্রেণির NCTB জীববিজ্ঞান পাঠ্যবইয়ের নির্দিষ্ট অধ্যায়ের নোট থেকে সম্পূর্ণ নতুন ও সৃজনশীল';
 
-  // এখানে কড়াভাবে নির্দেশ দেওয়া হয়েছে যেন অন্য কোনো অধ্যায়ের প্রশ্ন না আনা হয়
-  const prompt = `তুমি একজন বিশেষজ্ঞ শিক্ষক। নিচে দেওয়া নির্দিষ্ট অধ্যায়টি ছাড়া অন্য কোনো অধ্যায় থেকে কোনো প্রশ্ন আনবে না।
-${sourceDesc} "${ch.num}: ${ch.title}" অধ্যায় থেকে শুধুমাত্র এই অধ্যায়ের বিষয়বস্তুর ওপর ভিত্তি করে ঠিক এবং অবিকল 25টি MCQ প্রশ্ন তৈরি করো। এর বাইরে অন্য কোনো অধ্যায়ের প্রশ্ন মিশ্রণ করা কঠোরভাবে নিষিদ্ধ। ঠিক ২৫টি প্রশ্নই হতে হবে।
-
-শুধুমাত্র নিচের JSON ফরম্যাটে উত্তর দেবে (বাইরে কোনো কথা বা markdown লিখবে না):
+  const prompt = `তুমি একজন কঠোর ও বিশেষজ্ঞ জীববিজ্ঞান শিক্ষক। নিচের নির্দেশাবলী নিখুঁতভাবে মেনে চলো:
+১. শুধুমাত্র এবং কেবলমাত্র "${ch.num}: ${ch.title}" অধ্যায়ের নির্দিষ্ট পাঠ্যসূচি থেকে প্রশ্ন তৈরি করবে।
+২. অন্য কোনো অধ্যায় থেকে কোনো প্রশ্ন বা ধারণা মিশ্রণ করা সম্পূর্ণ নিষিদ্ধ।
+৩. ${sourceDesc} এই অধ্যায় থেকে ঠিক এবং অবিকল 25টি MCQ প্রশ্ন তৈরি করো। এর কম বা বেশি যেন না হয়।
+৪. শুধুমাত্র নিচের JSON ফরম্যাটে উত্তর দেবে (বাইরে কোনো কথা বা markdown লিখবে না):
 [
   {
     "q": "প্রশ্নটি এখানে লেখো",
@@ -257,9 +273,7 @@ ${sourceDesc} "${ch.num}: ${ch.title}" অধ্যায় থেকে শু
     const raw = data.reply.replace(/```json|```/g, '').trim();
     let list = JSON.parse(raw.slice(raw.indexOf('['), raw.lastIndexOf(']') + 1));
     
-    if (list.length > 25) {
-      list = list.slice(0, 25);
-    }
+    list = filterChapterQuestions(list, idx);
     
     allQuestions = list;
     beginSession(allQuestions);
@@ -277,7 +291,7 @@ function beginSession(list) {
   document.getElementById('resultView').style.display = 'none';
   document.getElementById('quizView').style.display = 'block';
   document.getElementById('questionArea').style.display = 'block';
-  startTimer(activeList.length);
+  startTimer();
   showQuestion();
 }
 
